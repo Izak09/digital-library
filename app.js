@@ -1,6 +1,3 @@
-// script.js
-
-// Define the Media class
 class Media {
     constructor(Media, Book, CD, Movie) {
       this._Media = Media;
@@ -30,23 +27,98 @@ class Media {
     toggleCheckOutStatus() {
       this._isCheckedOut = !this._isCheckedOut;
     }
+
+    getAverageRating() {
+        const ratingsSum = this._ratings.reduce((currentSum, rating) => currentSum + rating, 0);
+        return ratingsSum / this._ratings.length;
+    }
+
+    addRating(rating) {
+        this.ratings.push(rating);
+    }
   }
-  
-  // Create a media item instance
-  const mediaItem = new Media('Example Title', 'Book', 'CD', 'Movie');
-  
-  // Update the UI with media item details
-  function updateUI() {
-    document.getElementById('title').textContent = mediaItem.title;
-    document.getElementById('status').textContent = mediaItem.isCheckedOut ? 'Checked Out' : 'Available';
-  }
-  
-  // Toggle button event listener
-  document.getElementById('toggleButton').addEventListener('click', () => {
-    mediaItem.toggleCheckOutStatus();
-    updateUI();
-  });
-  
-  // Initial UI update
-  updateUI();
-  
+
+class Book extends Media {
+    constructor(author, title, pages) {
+        super(title);
+        this._author = author;
+        this.pages = pages;
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    get pages() {
+        return this._pages;
+    }
+}
+
+class Movie extends Media {
+    constructor(director, title, runTime) {
+        super(title);
+        this._director = director;
+        this._runTime = runTime;
+    }
+
+    get director() {
+        return this.director;
+    }
+
+    get runTime() {
+        return this._runTime;
+    }
+}
+
+const historyOfEverything = new Book ('The Pragmatic Programmer', 'Andrew Hunt', 352);
+
+historyOfEverything.toggleCheckOutStatus();
+
+console.log(historyOfEverything.isCheckedOut);
+
+historyOfEverything.addRating();
+historyOfEverything.addRating(5);
+historyOfEverything.addRating(6);
+
+console.log(historyOfEverything.getAverageRating());
+
+const speed = new Movie('The Playlist', 'Daniel Ek', 23);
+
+speed.toggleCheckOutStatus();
+console.log(speed.isCheckOutStatus);
+
+speed.addRating(1);
+speed.addRating(1);
+speed.addRating(5);
+
+console.log(speed.getAverageRating());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
