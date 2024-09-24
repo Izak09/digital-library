@@ -1,6 +1,6 @@
 # Media Library
 
-This project is a simple implementation of a media library that allows you to manage different types of media, such as books and movies. The library provides functionality to check in and out media items, add ratings, and calculate the average rating for each item.
+Media Library is an implementation of a media library that allows you to manage different types of media, such as books and movies. The library provides functionality to check in and out media items, add ratings, and calculate the average rating for each item.
 
 ## Table of Contents
 * Features
