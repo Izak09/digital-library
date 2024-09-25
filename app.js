@@ -71,6 +71,7 @@ class Movie extends Media {
 }
 
 const historyOfEverything = new Book ('The Pragmatic Programmer', 'Andrew Hunt', 352);
+const historyOfNewBooks = new Book('Come and Get It', 'Kiley Reid', 400);
 
 historyOfEverything.toggleCheckOutStatus();
 
